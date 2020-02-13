@@ -1,0 +1,14 @@
+.header__inner
+  .header__inner__text
+    = "Wild Night"
+  %ul.header__inner__right
+    = if user_signed_in?
+      = link_to "マイページ", "#", class: "header__right--btn"
+      - link_to "ログアウト", destroy_user_session_path,method: :delete, class: "header__right--btn"
+    - else
+      = link_to "ログイン", new_user_session_path, class: "header__right--btn"
+      - link_to "新規登録", new_user_registration_path, class: "header__right--btn"
+.previous_box
+.previous_box__previous
+  .previous_box__previous__text
+    ダンサー情報、イベント情報など、ストリートダンスの情報集約サイト

@@ -1,0 +1,14 @@
+.header
+  = render 'shared/header'
+.photos
+.subject
+  = @genre.name
+.contents
+  .description
+    .description__photo
+    .description__text
+      = @genre.text
+  .movies
+    .movies__movie  
+.footer
+  = render 'shared/footer'

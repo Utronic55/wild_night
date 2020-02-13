@@ -1,0 +1,12 @@
+.description{
+  width: 90vw;
+  height: 50vh;
+  &__photo{
+    background:image-url("pop.jpg");
+    float:left;
+    max-width: 100%;
+    height: auto;
+
+  }
+
+}

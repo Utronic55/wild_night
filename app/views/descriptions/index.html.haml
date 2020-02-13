@@ -1,0 +1,60 @@
+.header
+  = render 'shared/header'
+
+.photos
+.subject
+  Genres
+.contents
+  .content
+    .content__name
+      = link_to description_path(1)  do
+        ="　Pop　"
+    .content__text
+      　筋肉を弾く、Popという技術を用いたダンス
+
+  .content
+    .content__name
+      = link_to description_path(2) do
+        ="　Lock　"
+    .content__text
+      　鍵をかけるような動きが特徴のダンス
+
+.contents
+  .content
+    .content__name
+      = link_to description_path(3) do
+        ="　Break　"
+    .content__text
+      　アクロバティックな動きが特徴のダンス。
+
+  .content
+    .content__name
+      = link_to description_path(4) do
+        ="　Hiphop　"
+    .content__text
+      　様々なダンスを取り入れた、雑食性のダンス
+.contents
+  .content
+    .content__name
+      = link_to description_path(5) do
+        ="　House　"
+    .content__text
+      　軽やかなステップワークを中心としたダンス。
+
+  .content
+    .content__name
+      = link_to description_path(6) do
+        ="　Waack　"
+    .content__text
+      　大きくしなやかに腕を振るう動きが特徴のダンス。
+
+.contents
+  .content
+    .content__name
+      = link_to description_path(7) do
+        ="　Krump　"
+    .content__text
+      　内に秘めた感情を爆発させるエネルギッシュなダンス。
+
+.footer
+  = render 'shared/footer'

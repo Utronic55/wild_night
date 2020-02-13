@@ -1,0 +1,58 @@
+.header
+  = render 'shared/header'
+  
+.photos
+.subject
+  Contents
+.contents
+  .content
+    .content__name
+      -# = link_to "#" do
+      = link_to descriptions_path  do
+        ="　What's street dance ?　"
+    .content__text
+      　各種ジャンルの説明
+
+  .content
+    .content__name
+      -# link_to index_dance_genre_path do
+      = link_to "#" do
+        ="　Dancers　"
+    .content__text
+      　ダンサーの検索はこちらから
+
+.contents
+  .content
+    .content__name
+      -# = link_to index_event_path do
+      = link_to "#" do
+        ="　Events　"
+    .content__text
+      　各種検索機能完備(カレンダー、キーワード...etc)
+
+  .content
+    .content__name
+      -# = link_to index_workshop_path do
+      = link_to "#" do
+        ="　Workshops　"
+    .content__text
+      　各種検索機能完備(カレンダー、キーワード...etc)
+.contents
+  .content
+    .content__name
+      -# = link_to index_report_path do
+      = link_to "#" do
+        ="　Reports　"
+    .content__text
+      　過去のイベントレポートをまとめています。
+
+  .content
+    .content__name
+      -# = link_to new_question_path do
+      = link_to "#" do
+        ="　Questions　"
+    .content__text
+      　掲載ダンサーへの出演依頼、お問い合わせはこちらから。
+      
+.footer
+  = render 'shared/footer'

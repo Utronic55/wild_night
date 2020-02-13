@@ -1,0 +1,52 @@
+
+.photos{
+  height: 30px;
+  background-color: $main_color;
+  padding-bottom: 30px;
+}
+
+.subject{
+  height: 50px;
+  background-color: $index_background;
+  text-align: center;
+  font-size: 45px;
+  color: $index_text;
+  text-shadow: $shadow;
+}
+.content{
+  height: 150px;
+  width: 43vw;
+  background: linear-gradient(rgba(black, .7),rgba(black,.7)),$bw;
+  background-size: cover;
+  position: relative;
+  border-radius: 20px;
+  &__name{
+    font-size: 25px;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    a{
+      border-bottom-right-radius: 20px;
+      border-top-left-radius: 20px;
+      color: black;
+      text-shadow:white 1px 1px;
+      text-decoration:none;
+      background-color: rgba($color: lightgray, $alpha: 0.7);
+    }
+  }
+  &__text{
+    background: linear-gradient(rgba(gray, .7),rgba(lightgray,.7));
+    background-size: cover;
+    font-size: 15px;
+    color: $index_text;
+    text-shadow: 1px 1px black;
+    position: absolute;
+    bottom: 0;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    width: 43vw;
+
+  }
+  
+}
