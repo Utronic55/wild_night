@@ -1,40 +1,54 @@
-# README
+WILD NIGHT
+====
 
-# DB設計
+ストリートダンスのポータルサイト
 
-## users table
+![](https://gyazo.com/a17fd2aea8df349bee01d8e47bd78701.png)
+
+## 機能一覧
+・ストリートダンスの各ジャンルの説明
+・deviceを用いたダンサー紹介情報の登録機能
+
+### 実装予定
+・fullcalendarを用いた、イベント登録機能
+・ブログ機能
+・メーラー機能
+
+## 使用技術一覧
+・インフラはAWSを使用（予定）
+・画像の登録にはCarrierWaveを使用
+
+## DB設計
+
+### users table
 |Column|Type|Options|
 |------|----|-------|
-|genre_id|integer||
-|blog_id|integer||
-|image_id|integer||
-|name|string||
-|email|string||
-|phone_number|string||
-|password|string||
-|area|string||
+|genre_id|integer|null: false, foreign_key: true|
+|name|string|null: false|
+|email|string|null: false|
+|password|string|null: false|
+|area|string|null: false|
 |team|string||
+|youtube_url|string||
+|career|longtext||
+|introduction|longtext||
 
-### Association
+
+#### Association
 - has_many :events,through event_users
 - has_many :blogs,through user_blogs
-- has_many :genres,through user_genres
+- belongs_to :genre
 - has_many :images
 
-## events table
+### events table
 |Column|Type|Options|
 |------|----|-------|
-|dancer_id|integer||
-|organizer_id|integer||
-|genre_id|integer||
-|perticipant_id|integer||
-|blog_id|integer||
-|image_id|integer||
-|name|string||
-|area|string||
+|organizer_id|integer|null: false, foreign_key: true|
+|name|string|null: false|
+|area|string|null: false|
 |text|longtext||
 
-### Association
+#### Association
 - has_many :dancers,through event_users
 - belongs_to :organizer
 - has_many :genres,through event_genres
@@ -42,108 +56,107 @@
 - has_many :blogs,through event_blogs
 - has_many :images
 
-## genres table
+### genres table
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer||
-|event_id|integer||
-|image_id|integer||
-|name|string||
+|user_id|integer|null: false, foreign_key: true|
+|event_id|integer|null: false, foreign_key: true|
+|image_id|integer|null: false, foreign_key: true|
+|name|string|null: false|
 |movie_link|string||
 |text|longtext||
 
-### Association
+#### Association
 - has_many :users,through user_genres
 - has_many :events,through event_genres
 - has_many :images
 
-## blogs table
+### blogs table
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer||
-|event_id|integer||
-|image_id|integer||
-|title|string||
-|text|longtext||
+|user_id|integer|null: false, foreign_key: true|
+|event_id|integer|null: false, foreign_key: true|
+|image_id|integer|null: false, foreign_key: true|
+|title|string|null: false|
+|text|longtext|null: false|
 
-### Association
+#### Association
 - has_many :users,through user_blogs
 - has_many :events,through event_blogs
 - has_many :images
 
-## questions table
+### questions table
 |Column|Type|Options|
 |------|----|-------|
-|name|string||
-|email|string||
-|text|longtext||
+|name|string|null: false|
+|email|string|null: false|
+|text|longtext|null: false|
 
-## images table
+### images table
 |Column|Type|Options|
 |------|----|-------|
-|genre_id|string||
-|blog_id|string||
-|user_id|string||
-|event_id|string||
-|name|integer||
-|image|integer||
+|genre_id|string|foreign_key: true|
+|blog_id|string|foreign_key: true|
+|user_id|string|foreign_key: true|
+|event_id|string|foreign_key: true|
+|image|integer|null: false|
 
-### Association
+#### Association
 - belongs_to :genre
 - belongs_to :blog
 - belongs_to :user
 - belongs_to :event
 
-## perticipants table
+### perticipants table
 |Column|Type|Options|
 |------|----|-------|
-|event_id|string||
-|name|integer||
-|area|integer||
-|phone_number|integer||
-|email|integer||
+|event_id|string|null: false, foreign_key: true|
+|name|integer|null: false|
+|area|integer|null: false|
+|phone_number|integer|null: false|
+|email|integer|null: false|
 
-### Association
+#### Association
 - belongs_to :event
 
 
-## user_genres table
+### user_genres table
 |Column|Type|Options|
 |------|----|-------|
-|user_id|string||
-|genre_id|string||
+|user_id|string|null: false, foreign_key: true|
+|genre_id|string|null: false, foreign_key: true|
 
-### Association
+#### Association
 - belongs_to :user
 - belongs_to :genre
 
-## user_blogs table
+### user_blogs table
 |Column|Type|Options|
 |------|----|-------|
-|user_id|string||
-|blog_id|string||
+|user_id|string|null: false, foreign_key: true|
+|blog_id|string|null: false, foreign_key: true|
 
-### Association
+#### Association
 - belongs_to :user
 - belongs_to :blog
 
-## event_blogs table
+### event_blogs table
 |Column|Type|Options|
 |------|----|-------|
-|event_id|string||
-|blog_id|string||
+|event_id|string|null: false, foreign_key: true|
+|blog_id|string|null: false, foreign_key: true|
 
-### Association
+#### Association
 - belongs_to :event
 - belongs_to :blog
 
-## event_genres table
+### event_genres table
 |Column|Type|Options|
 |------|----|-------|
-|event_id|string||
-|genre_id|string||
+|event_id|string|null: false, foreign_key: true|
+|genre_id|string|null: false, foreign_key: true|
 
-### Association
+#### Association
 - belongs_to :event
 - belongs_to :genre
 

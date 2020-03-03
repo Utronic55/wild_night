@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_11_103114) do
+ActiveRecord::Schema.define(version: 2020_03_02_060728) do
 
   create_table "dancers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -36,52 +36,60 @@ ActiveRecord::Schema.define(version: 2020_02_11_103114) do
   end
 
   create_table "event_genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "event"
-    t.integer "genre"
+    t.integer "event_id"
+    t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.integer "genre"
+    t.integer "genre_id"
     t.string "area"
-    t.integer "dancer"
     t.datetime "date"
-    t.text "text"
+    t.text "introduction", limit: 4294967295
     t.string "link1"
     t.string "link2"
     t.string "link3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["area"], name: "index_events_on_area"
-    t.index ["dancer"], name: "index_events_on_dancer"
-    t.index ["genre"], name: "index_events_on_genre"
+    t.index ["genre_id"], name: "index_events_on_genre_id"
     t.index ["name"], name: "index_events_on_name"
   end
 
   create_table "genre_dancers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "genre"
-    t.integer "dancer"
+    t.integer "genre_id"
+    t.integer "dancer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "dancer"
-    t.integer "event"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "text", limit: 4294967295
-    t.index ["dancer"], name: "index_genres_on_dancer"
-    t.index ["event"], name: "index_genres_on_event"
     t.index ["name"], name: "index_genres_on_name"
+  end
+
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.integer "genre_id", null: false
+    t.string "name", default: "", null: false
+    t.string "area", default: "", null: false
+    t.string "team", default: ""
+    t.text "career", limit: 4294967295
+    t.text "introduction", limit: 4294967295
+    t.string "youtube_url"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
