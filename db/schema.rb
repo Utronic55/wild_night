@@ -12,6 +12,30 @@
 
 ActiveRecord::Schema.define(version: 2020_03_02_060728) do
 
+  create_table "dancers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "team"
+    t.string "area"
+    t.string "image"
+    t.string "link1"
+    t.string "link2"
+    t.string "link3"
+    t.text "career"
+    t.text "text"
+    t.integer "genre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_dancers_on_name"
+  end
+
+  create_table "event_dancers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "event"
+    t.integer "dancer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+
   create_table "event_genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "event_id"
     t.integer "genre_id"
@@ -44,9 +68,9 @@ ActiveRecord::Schema.define(version: 2020_03_02_060728) do
 
   create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.text "text", limit: 4294967295
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "text", limit: 4294967295
     t.index ["name"], name: "index_genres_on_name"
   end
 
