@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_060728) do
     t.datetime "updated_at", null: false
   end
 
+
   create_table "event_genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "event_id"
     t.integer "genre_id"
