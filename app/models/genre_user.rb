@@ -1,4 +1,4 @@
 class GenreDancer < ApplicationRecord
   belongs_to :genre
-  belongs_to :dancer
+  belongs_to :user
 end

@@ -1,21 +1,102 @@
 %h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.register_form_content
+  .register_form_content__head
+    %h1="会員情報入力"
+  = form_with model: @user, local: true, url: user_registration_path, method: 'POST', class: 'signup_register_form', novalidate: 'novalidate' do |f|
+    .register_form_content__main
+      .form-group
+        = f.label 'ダンサーネーム'
+        %span.form-repuire 必須
+        %br
+        - if @user.errors.full_messages_for(:name).any?
+          %p= "15文字以内で入力してください"
+          = f.text_field :name, { class: 'signup_register_input-has-error', placeholder: 'ダンサーネーム' }
+        - else
+          = f.text_field :name, { class: 'signup_register_input-default', placeholder: 'ダンサーネーム' }
+      .form-group
+        = f.label '活動地域'
+        %span.form-repuire 必須
+        %br
+        - if @user.errors.full_messages_for(:area).any?
+          %p= "15文字以内で入力してください"
+          = f.text_field :area, { class: 'signup_register_input-has-error', placeholder: '例：東京' }
+        - else
+          = f.text_field :area, { class: 'signup_register_input-default', placeholder: '例：東京' }
+      .form-group
+        = f.label 'ジャンル'
+        %span.form-repuire 必須
+        %br
+        = f.collection_select(:genre_id, Genre.all, :id, :name)
+      .form-group
+        = f.label "メールアドレス"
+        %span.form-repuire 必須
+        %br
+        - if @user.errors.full_messages_for(:email).any?
+          %p="フォーマットが不適切です"
+          = f.email_field :email, { class: 'signup_register_input-has-error', placeholder: 'PC・携帯どちらでも可' }
+        - else
+          = f.email_field :email, { class: 'signup_register_input-default', placeholder: 'PC・携帯どちらでも可' }
+
+      .form-group
+        = f.label "パスワード"
+        %span.form-repuire 必須
+        %br
+        - if @user.errors.full_messages_for(:password).any?
+          %p="英数字7文字以上で入力をしてください"
+          = f.password_field :password, { class: 'signup_register_input-has-error', placeholder: '7文字以上' }
+        - else
+          = f.password_field :password, { class: 'signup_register_input-default', placeholder: '7文字以上' }
+
+      .form-group
+        = f.label"パスワード確認"
+        %span.form-repuire 必須
+        %br
+        - if @user.errors.full_messages_for(:password_confirmation).any?
+          %p="英数字7文字以上で入力をしてください"
+          = f.password_field :password_confirmation, { class: 'signup_register_input-has-error', placeholder: '7文字以上' }
+        - else
+          = f.password_field :password_confirmation, { class: 'signup_register_input-default', placeholder: '7文字以上' }
+      .form-group
+        = f.label 'チーム名'
+        %span.form-repuire 任意
+        %br
+        = f.text_field :team, { class: 'signup_register_input-default', placeholder: 'チーム名' }
+      
+      -# .form-group
+      -#   .upload_box 
+      -#     %h3.upload_box__head
+      -#       = f.label :image, "アーティスト画像"
+      -#       %span 任意
+      -#     %p.info クリックしてファイルをアップロード
+      -#     .image-box__container
+      -#       #image-box-1
+      -#       .item-num-0
+      -#       = f.fields_for :images do |i|
+      -#         .input-area#image-box__container
+      -#           = i.file_field :images,type: 'file', name: "image", value:"image", style: "display:none", id:"img-file"
+      -#           %label.input{for: "img-file"}
+      -#             %i.fas.fa-camera
+      -#               追加
+
+      .form-group
+        = f.label :career do
+          経歴
+          %span 任意
+          %br
+        = f.text_area :career, placeholder: "箇条書きで入力してください。", rows: "5", class: "signup_register_input-default"
+
+      .form-group
+        = f.label :introduction do
+          紹介文
+          %span 任意
+          %br
+        = f.text_area :introduction, placeholder: "自身の紹介文を入力してください。", rows: "5", class: "signup_register_input-default"
+
+      .form-group
+        = f.label 'Youtube リンク'
+        %span.form-repuire 任意
+        %br
+        = f.text_field :youtube_url, { class: 'signup_register_input-default', placeholder: 'URLを入力してください。' }
+
+      
+    = f.submit '登録', class: 'register_submit_button'
