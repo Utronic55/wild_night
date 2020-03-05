@@ -50,5 +50,5 @@ end
 private
 
   def user_params
-    params.require(:user).permit(:name,:password:area,:genre_id,:team,:email,:career,:introduction,:youtube_url) #,images_attributes: [:image,:_destroy, :id])
+    params.require(:user).permit(:name,:password,:area,:genre_id,:team,:email,:career,:introduction,:youtube_url) #,images_attributes: [:image,:_destroy, :id])
   end
