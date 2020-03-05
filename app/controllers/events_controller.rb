@@ -18,4 +18,5 @@ class EventsController < ApplicationController
   end
 
   def destroy
+  end
 end
