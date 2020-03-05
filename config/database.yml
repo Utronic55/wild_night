@@ -15,7 +15,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password:
-  socket: /tmp/mysql.sock
+   socket: /var/lib/mysql/mysql.sock
 
 development:
   <<: *default
@@ -55,3 +55,4 @@ production:
   database: wild_night_production
   username: wild_night
   password: <%= ENV['WILD_NIGHT_DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
