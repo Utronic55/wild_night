@@ -22,7 +22,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in(:user, @user)
   end
 
-  
+  def index
+  end
+
+  def show
+  end
 
   protected
 
