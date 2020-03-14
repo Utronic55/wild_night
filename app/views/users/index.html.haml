@@ -1,0 +1,18 @@
+.header
+  = render 'shared/header'
+.search
+  = form_with model: User do |f|
+    .form__field
+      .form__search.clearfix
+        %input#user-search-field.form__input{:placeholder => "検索したいダンサー名を入力してください", :type => "search"}/
+      #user-search-result
+
+    .form-group#genre-search-field
+      = f.label 'ジャンル'
+      %span.form-repuire 必須
+      %br
+      = f.collection_select(:genre_id, Genre.all, :id, :name)
+    #genre-search-result
+
+.footer
+  = render 'shared/footer'

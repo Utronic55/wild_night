@@ -12,5 +12,4 @@ Rails.application.routes.draw do
   root 'contents#index'
   resources :descriptions, only: [:index ,:show]
   resources :users, only: [:new,:create,:index,:show]
-  resources :dance_genres, only: [:index]
 end

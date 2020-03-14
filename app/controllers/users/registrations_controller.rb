@@ -22,12 +22,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in(:user, @user)
   end
 
-  def index
-  end
-
-  def show
-  end
-
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
