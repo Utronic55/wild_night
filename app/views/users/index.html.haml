@@ -9,7 +9,7 @@
 
     .form-group#genre-search-field
       = f.label 'ジャンル'
-      %span.form-repuire 必須
+      %span.form-repuire
       %br
       = f.collection_select(:genre_id, Genre.all, :id, :name)
     #genre-search-result
