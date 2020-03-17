@@ -4,13 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         def self.search(search)
-          if search
-            User.where(['content LIKE ?', "%#{search}%"])
-          else
-            User.all
-          end
-        end
+        #  def self.search(search)
+        #   if search
+        #     User.where(['content LIKE ?', "%#{search}%"])
+        #   else
+        #     User.all
+        #   end
+        # end
 
         #  has_many :images
         #  mount_uploader :image, ImagesUploader

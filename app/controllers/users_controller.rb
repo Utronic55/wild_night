@@ -8,9 +8,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def search
-    @users = User.search(params[:search])
-  end
+  # def search
+  #   @users = User.search(params[:search])
+  # end
 
   
   def show
