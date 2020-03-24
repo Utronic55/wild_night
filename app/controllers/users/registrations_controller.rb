@@ -9,8 +9,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # @images = @user.images.build
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
   def create
     @user = User.new(user_params)
+    url = params[:user][:youtube_url]
+    url = url.last(11)
+    @user.youtube_url = url
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
       render :new and return

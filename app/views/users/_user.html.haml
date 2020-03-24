@@ -3,4 +3,7 @@
     -# .user__info__member
     -#   = user.image
     .user__info__member
-      = user.name
+      = link_to user_path(user.id) do
+        = user.name
+
+        

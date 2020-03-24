@@ -2,7 +2,7 @@ $(function() {
   function addUser(user) {
     let html = `
       <div class="user clearfix">
-        <p class="user__name">${user.name}</p>
+        <a href="/users/${user.id}">${user.name}</p>
       </div>
     `;
     $("#user-search-result").append(html);

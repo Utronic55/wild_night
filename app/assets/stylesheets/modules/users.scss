@@ -1,0 +1,52 @@
+.dancer{
+  &__contents{
+    width: 100vw;
+  }
+  &__description{
+    display: flex;
+    background: gray;
+    &__photos{
+      margin-left: 10vw;
+      margin-right: 10vw;
+      width: 25vw;
+      height: 35.675vw;
+      background: white;
+    }
+    &__career{
+      margin-right: 5vw;
+      width: 50vw;
+      height: 35.675vw;
+      background: yellow;
+      &__title{
+        height: 70px;
+        text-align: center;
+        line-height: 70px;
+        font-size: xx-large;
+        background: lightgrey;
+
+      }
+      &__text{
+        margin-top: 20px;
+
+      }
+    }
+  }
+  &__introduction{
+    margin-top: 20px;
+    &__title{
+      height: 70px;
+      text-align: center;
+      line-height: 70px;
+      font-size: xx-large;
+      background: lightgrey;
+      
+    }
+    &__text{
+      height: 35.675vw;
+      
+    }
+    
+    //   &__movies
+    //   &__movies__movie  
+  }
+}
