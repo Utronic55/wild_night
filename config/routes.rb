@@ -11,5 +11,5 @@ Rails.application.routes.draw do
 
   root 'contents#index'
   resources :descriptions, only: [:index ,:show]
-  resources :users, only: [:new,:create]
+  resources :users, only: [:new,:create,:index,:show]
 end

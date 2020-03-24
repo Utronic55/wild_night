@@ -1,0 +1,24 @@
+.header
+  = render 'shared/header'
+.search
+  = form_with model: User do |f|
+    .form__field
+      .form__search.clearfix
+        %input#user-search-field.form__input{:placeholder => "検索したいダンサー名を入力してください", :type => "search"}/
+      #user-search-result
+
+  -# .genre-search
+  -#   %span.search_item.is-active{"genre_id" => ""} ALL
+  -#   %span.search_item{User.where(genre_id: 1)} Pop
+  -#   %span.search_item{User.where(genre_id: 2)} Lock
+  -#   %span.search_item{User.where(genre_id: 3)} Break
+  -#   %span.search_item{User.where(genre_id: 4)} Hiphop
+  -#   %span.search_item{User.where(genre_id: 5)} House
+  -#   %span.search_item{User.where(genre_id: 6)} Krump
+  -#   %span.search_item{User.where(genre_id: 7)} Waack
+
+.users
+  = render @users
+
+.footer
+  = render 'shared/footer'
