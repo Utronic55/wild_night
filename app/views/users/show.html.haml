@@ -2,12 +2,12 @@
   = render 'shared/header'
 .photos
 .subject
-  = @genre.name
+  = @user.name
 .contents
   .description
     .description__photo
     .description__text
-      = @genre.text
+      = @user.introduction
   .movies
     .movies__movie  
       -# %iframe{:allow => "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/#{@post.youtube_url}", :width => "560"}
