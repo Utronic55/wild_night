@@ -1,15 +1,26 @@
 .header
   = render 'shared/header'
-.photos
-.subject
-  = @user.name
-.contents
-  .description
-    .description__photo
-    .description__text
+  .subject
+    = @user.name
+.dancer
+  .dancer__contents
+    .dancer__description
+      .dancer__description__photos
+        写真
+      
+      .dancer__description__career
+        .dancer__description__career__title
+          Career
+        .dancer__description__career__text
+          = @user.career
+    .dancer__introduction
+    .dancer__introduction__title
+      Introduction
+    .dancer__introduction__text
       = @user.introduction
-  .movies
-    .movies__movie  
-      -# %iframe{:allow => "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/#{@post.youtube_url}", :width => "560"}
-.footer
-  = render 'shared/footer'
+    .dancer__movies
+      紹介動画
+      .dancer__movies__movie  
+        %iframe{:allow => "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/#{@user.youtube_url}", :width => "560"}
+  .footer
+    = render 'shared/footer'
