@@ -168,4 +168,3 @@ URL  http://52.197.151.88/
 #### Association
 - belongs_to :event
 - belongs_to :genre
-
