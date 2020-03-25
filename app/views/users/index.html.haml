@@ -3,7 +3,7 @@
 .search
   = form_with model: User do |f|
     .form__field
-      .form__search.clearfix
+      .form__search
         %input#user-search-field.form__input{:placeholder => "検索したいダンサー名を入力してください", :type => "search"}/
       #user-search-result
 

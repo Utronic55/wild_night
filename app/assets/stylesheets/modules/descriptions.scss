@@ -1,12 +1,27 @@
 .description{
-  width: 90vw;
-  height: 50vh;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background: gray;
   &__photo{
+    margin-left: 10vw;
+    margin-right: 10vw;
+    width: 25vw;
+    height: 25vw;
     background:image-url("pop.jpg");
-    float:left;
-    max-width: 100%;
-    height: auto;
-
-  }
-
+    }
+  &__text{
+      margin-right: 5vw;
+      width: 50vw;
+      height: 30vw;
+      background: yellow;
+    }
 }
+
+
+
+
+
+    //   &__movies
+    //   &__movies__movie  
+

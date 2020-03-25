@@ -1,0 +1,15 @@
+
+.user{
+  background: $main_color;
+  .list_item{
+    width: 100vw;
+    padding-top: 20px;
+    .user__info__member{
+      background: whitesmoke;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      font-size: xx-large;
+    }
+  }
+}
